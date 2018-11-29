@@ -50,13 +50,6 @@ function ensure_hook_is_installed() {
   fi
 }
 
-function ensure_git_ignores_clang_format_file() {
-  grep -q ".clang-format" ".gitignore"
-  if [ $? -gt 0 ]; then
-    echo ".clang-format" >> ".gitignore"
-  fi
-}
 
-
-ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed && ensure_git_ignores_clang_format_file
+ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed
 

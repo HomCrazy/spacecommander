@@ -31,12 +31,12 @@ function format_objc() {
     fi
   done
   if [ $success -gt 0 ]; then
-      echo -e "\n🚀  Format and stage all affected files:\n\t \"$DIR\"/format-objc-files.sh -s"
+      echo -e "\n🚀  格式化暂存区文件命令:\n\t  $DIR/format-objc-files.sh -s"
   fi
   return $success 
 }
 
 success=0
-format_objc || (echo -e "\n🔴  There were formatting issues with this commit, run the👆 above👆 command to fix.\n💔  Commit anyway and skip this check by running git commit --no-verify" && success=1)
+format_objc || (echo -e "\n🔴  There were formatting issues with this commit, run the👆 above👆 command to fix.\n💔  跳过格式化检查请在git commit 后面增加选项 --no-verify " && success=1)
 
 exit $success

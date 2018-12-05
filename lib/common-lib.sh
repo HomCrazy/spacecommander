@@ -27,6 +27,7 @@ function directories_to_ignore() {
 function objc_files_to_format() {
 	optional_base_sha="$1"
 	directories_to_check
+    git config --global core.quotepath false
 	# optional_base_sha is intentionally unescaped so that it will not appear as empty quotes.
 	files=$(git diff --cached --name-only $optional_base_sha --diff-filter=ACM -- $locations_to_diff | grep -e '\.m$' -e '\.mm$' -e '\.h$' -e '\.hh$')
 	directories_to_ignore
